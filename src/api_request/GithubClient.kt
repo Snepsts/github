@@ -4,19 +4,22 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.apache.Apache
 import io.ktor.client.features.json.GsonSerializer
 import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.request.accept
 import io.ktor.client.request.get
 import io.ktor.client.request.headers
 import io.ktor.client.request.url
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
+import io.ktor.http.headersOf
 import java.net.URL
 
 import models.*
 
 class GithubClient {
-    private val httpClient: HttpClient = HttpClient {
+    private val httpClient: HttpClient = HttpClient(Apache) {
         install(JsonFeature) {
-            serializer = GsonSerializer() // allows unpacking json to kotlin object
+            serializer = GsonSerializer { // allows unpacking json to kotlin object
+            }
         }
     }
 
@@ -26,6 +29,7 @@ class GithubClient {
         val response = httpClient.get<List<User>> {
             url(URL("$baseUrl/user/$githubId/followers"))
             contentType(ContentType.Application.Json)
+            accept(ContentType.Application.Json)
         }
 
         var count: Int = 0
@@ -50,8 +54,11 @@ class GithubClient {
         try {
             response = httpClient.get<List<User>> {
                 url(URL("$baseUrl/users/$githubName/followers"))
-                contentType(ContentType.Application.Json)
-                headers { "Accept: application/vnd.github.v3+json" }
+                contentType(ContentType.Application.Json.withParameter("charset", "utf-8"))
+                headers {
+                    headersOf("Accept", "application/vnd.github.v3+json")
+                }
+                accept(ContentType.Application.Json)
             }
         } catch (e: Exception) {
             println(e.message)
@@ -59,6 +66,15 @@ class GithubClient {
             println("$baseUrl/users/$githubName")
             return listOf()
         }
+
+        var test: String = httpClient.get {
+            url(URL("$baseUrl/users/$githubName/followers"))
+            contentType(ContentType.Application.Json.withParameter("charset", "utf-8"))
+            headers { headersOf("Accept", "application/vnd.github.v3+json") }
+            accept(ContentType.Application.Json)
+        }
+
+        println(test)
 
         var count: Int = 0
         var users: MutableList<User> = mutableListOf() // initialize list

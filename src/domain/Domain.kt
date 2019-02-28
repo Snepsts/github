@@ -5,11 +5,12 @@ import models.*
 
 val client: GithubClient = GithubClient()
 
-suspend fun findFollowersByUsername(username: String): List<User> {
+// runs is 0 indexed
+suspend fun findFollowersByUsername(username: String, runs: Int): List<User> {
     var followers: MutableList<User> = mutableListOf()
     var usernamesToSearchFor = mutableListOf<String>(username)
 
-    for (count in 0..2) { // runs 3 times, like the question asked
+    for (count in 0..runs) { // runs 3 times, like the question asked
         var followersFound: MutableList<User> = mutableListOf()
 
         for (username in usernamesToSearchFor) {
@@ -21,7 +22,7 @@ suspend fun findFollowersByUsername(username: String): List<User> {
         usernamesToSearchFor = mutableListOf() // reset searchable usernames
 
         for (follower in followersFound) {
-            if (count == 2) {
+            if (count == runs) {
                 break // optimization, don't need to run through the loop in the last run
             }
 

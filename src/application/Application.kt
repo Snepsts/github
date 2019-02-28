@@ -30,13 +30,15 @@ fun Application.module(testing: Boolean = false) {
         method(HttpMethod.Delete)
         method(HttpMethod.Patch)
         header(HttpHeaders.Authorization)
-        header("MyCustomHeader")
+        // header("MyCustomHeader")
         allowCredentials = true
         anyHost() // @TODO: Don't do this in production if possible. Try to limit it.
     }
 
     install(ContentNegotiation) {
         gson {
+            setPrettyPrinting()
+            disableHtmlEscaping()
         }
     }
 
@@ -52,7 +54,7 @@ fun Application.module(testing: Boolean = false) {
             var users: List<User> = listOf()
 
             if (username != null) {
-                users = findFollowersByUsername(username)
+                users = findFollowersByUsername(username, 0)
             }
 
             if (users.any()) {
