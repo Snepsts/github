@@ -3,8 +3,8 @@ using Newtonsoft.Json;
 
 namespace Github.Models
 {
-    public class User
-    {        
+    public class Owner
+    {
         [JsonProperty("login")]
         public string Login { get; set; }
 
@@ -58,44 +58,5 @@ namespace Github.Models
 
         [JsonProperty("site_admin")]
         public bool SiteAdmin { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("company")]
-        public string Company { get; set; }
-
-        [JsonProperty("blog")]
-        public string Blog { get; set; }
-
-        [JsonProperty("location")]
-        public string Location { get; set; }
-
-        [JsonProperty("email")]
-        public string Email { get; set; }
-
-        [JsonProperty("hireable")]
-        public bool Hireable { get; set; }
-
-        [JsonProperty("bio")]
-        public string Bio { get; set; }
-
-        [JsonProperty("public_repos")]
-        public long PublicRepos { get; set; }
-
-        [JsonProperty("public_gists")]
-        public long PublicGists { get; set; }
-
-        [JsonProperty("followers")]
-        public long Followers { get; set; }
-
-        [JsonProperty("following")]
-        public long Following { get; set; }
-
-        [JsonProperty("created_at")]
-        public DateTimeOffset CreatedAt { get; set; }
-
-        [JsonProperty("updated_at")]
-        public DateTimeOffset UpdatedAt { get; set; }
     }
 }
