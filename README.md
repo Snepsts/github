@@ -64,6 +64,7 @@ the following GitHub API documentation:
 <details><summary>See more</summary>
 <p>
 githubId is a long corresponding to the githubId on a user
+
 returns 3 iterations deep of searches
 
 Example request: `localhost:8080/github/follower/8688876`
@@ -100,6 +101,7 @@ Example return:
 <details><summary>See more</summary>
 <p>
 username is a string corresponding to a github login
+
 returns 3 iterations deep of searches
 
 Example request: `localhost:8080/github/followers/snepsts`
@@ -136,6 +138,7 @@ Example return:
 <details><summary>See more</summary>
 <p>
 githubId is a long corresponding to the githubId on a user
+
 returns a single iteration of searches
 
 Example request: `localhost:8080/github/singlefollower/8688876`
@@ -172,6 +175,7 @@ Example return:
 <details><summary>See more</summary>
 <p>
 username is a string corresponding to a github login
+
 returns a single iteration of searches
 
 Example request: `localhost:8080/github/singlefollowers/snepsts`
@@ -208,6 +212,7 @@ Example return:
 <details><summary>See more</summary>
 <p>
 githubId is a long corresponding to the githubId on a user
+
 returns 3 iterations deep of searches
 
 Example request: `localhost:8080/github/repo/8688876`
@@ -271,6 +276,7 @@ Example return:
 <details><summary>See more</summary>
 <p>
 username is a string corresponding to a github login
+
 returns 3 iterations deep of searches
 
 Example request: `localhost:8080/github/repos/snepsts`
@@ -334,6 +340,7 @@ Example return:
 <details><summary>See more</summary>
 <p>
 githubId is a long corresponding to the githubId on a user
+
 returns a single iteration of searches
 
 Example request: `localhost:8080/github/singlerepo/8688876`
@@ -397,6 +404,7 @@ Example return:
 <details><summary>See more</summary>
 <p>
 username is a string corresponding to a github login
+
 returns a single iteration of searches
 
 Example request: `localhost:8080/github/singlerepos/snepsts`
