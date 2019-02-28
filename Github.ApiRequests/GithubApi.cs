@@ -60,5 +60,74 @@ namespace Github.ApiRequests
             
             return ret;
         }
+
+        public async Task<IEnumerable<Repo>> FindThreeReposByGithubId(long githubId)
+        {
+            var uri = new Uri($"{_baseUrl}/user/{githubId.ToString()}/repos");
+            var response = await _client.GetAsync(uri);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            
+            Console.WriteLine(responseString);
+
+            var ret = JsonConvert.DeserializeObject<List<Repo>>(responseString);
+
+            while (ret.Count > 3)
+            {
+                ret.RemoveAt(3); // remove 4th entries until there are three
+            }
+            
+            return ret;
+        }
+        
+        public async Task<IEnumerable<User>> FindThreeStargazersByRepoAndUsername(string repo, string username)
+        {
+            var uri = new Uri($"{_baseUrl}/repos/{username}/{repo}/stargazers");
+            var response = await _client.GetAsync(uri);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            
+            Console.WriteLine(responseString);
+
+            var ret = JsonConvert.DeserializeObject<List<User>>(responseString);
+
+            while (ret.Count > 3)
+            {
+                ret.RemoveAt(3); // remove 4th entries until there are three
+            }
+            
+            return ret;
+        }
+        
+        public async Task<IEnumerable<Repo>> FindThreeReposByUsername(string username)
+        {
+            var uri = new Uri($"{_baseUrl}/users/{username}/repos");
+            var response = await _client.GetAsync(uri);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            
+            Console.WriteLine(responseString);
+
+            var ret = JsonConvert.DeserializeObject<List<Repo>>(responseString);
+
+            while (ret.Count > 3)
+            {
+                ret.RemoveAt(3); // remove 4th entries until there are three
+            }
+            
+            return ret;
+        }
+
+        public async Task<User> FindUserByGithubId(long githubId)
+        {
+            var uri = new Uri($"{_baseUrl}/user/{githubId.ToString()}");
+            var response = await _client.GetAsync(uri);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            var ret = JsonConvert.DeserializeObject<User>(responseString);
+
+            return ret;
+        }
     }
 }
