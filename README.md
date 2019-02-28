@@ -1,7 +1,13 @@
 # github
 ### By: Michael Ranciglio
 #### Overview:
-This is an api to interact with the github api per CenturyLink's requirements for me via their test:
+This is an api to interact with the github api per CenturyLink's requirements via their test:
+
+<details><summary>See more</summary>
+<p>
+
+</p>
+</details>
 
 ```
 CenturyLink Coding Challenge
@@ -53,73 +59,405 @@ the following GitHub API documentation:
 ```
 
 #### Endpoints:
-// TODO
+
+##### /github/follower/{githubId}
+<details><summary>See more</summary>
+<p>
+githubId is a long corresponding to the githubId on a user
+returns 3 iterations deep of searches
+
+Example request: `localhost:8080/github/follower/8688876`
+
+Example return:
+```json
+[
+  {
+    "login": "abaga129",
+    "id":8194039
+  },
+  {
+    "login":"josenn",
+    "id":26552123
+  },
+  {
+    "login":"dman620",
+    "id":26069320
+  },
+  {
+    "login":"tork21",
+    "id":278894
+  },
+  {
+    "login":"smithandrewl",
+    "id":490251
+  }
+]
+```
+</p>
+</details>
+
+##### /github/followers/{username}
+<details><summary>See more</summary>
+<p>
+username is a string corresponding to a github login
+returns 3 iterations deep of searches
+
+Example request: `localhost:8080/github/followers/snepsts`
+
+Example return:
+```json
+[
+  {
+    "login": "abaga129",
+    "id":8194039
+  },
+  {
+    "login":"josenn",
+    "id":26552123
+  },
+  {
+    "login":"dman620",
+    "id":26069320
+  },
+  {
+    "login":"tork21",
+    "id":278894
+  },
+  {
+    "login":"smithandrewl",
+    "id":490251
+  }
+]
+```
+</p>
+</details>
+
+##### /github/singlefollower/{githubId}
+<details><summary>See more</summary>
+<p>
+githubId is a long corresponding to the githubId on a user
+returns a single iteration of searches
+
+Example request: `localhost:8080/github/singlefollower/8688876`
+
+Example return:
+```json
+[
+  {
+    "login": "abaga129",
+    "id":8194039
+  },
+  {
+    "login":"josenn",
+    "id":26552123
+  },
+  {
+    "login":"dman620",
+    "id":26069320
+  },
+  {
+    "login":"tork21",
+    "id":278894
+  },
+  {
+    "login":"smithandrewl",
+    "id":490251
+  }
+]
+```
+</p>
+</details>
+
+##### /github/singlefollowers/{username}
+<details><summary>See more</summary>
+<p>
+username is a string corresponding to a github login
+returns a single iteration of searches
+
+Example request: `localhost:8080/github/singlefollowers/snepsts`
+
+Example return:
+```json
+[
+  {
+    "login": "abaga129",
+    "id":8194039
+  },
+  {
+    "login":"josenn",
+    "id":26552123
+  },
+  {
+    "login":"dman620",
+    "id":26069320
+  },
+  {
+    "login":"tork21",
+    "id":278894
+  },
+  {
+    "login":"smithandrewl",
+    "id":490251
+  }
+]
+```
+</p>
+</details>
+
+##### /github/repo/{githubId}
+<details><summary>See more</summary>
+<p>
+githubId is a long corresponding to the githubId on a user
+returns 3 iterations deep of searches
+
+Example request: `localhost:8080/github/repo/8688876`
+
+Example return:
+```json
+[
+  {
+    "id":119456620,
+    "name":"acm-semo-tutorial",
+    "full_name":"Snepsts/acm-semo-tutorial",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+
+    ]
+  },
+  {
+    "id":44382875,
+    "name":"albino",
+    "full_name":"Snepsts/albino",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+      {
+        "login":"abaga129",
+        "id":8194039
+      },
+      {
+        "login":"dman620",
+        "id":26069320
+      },
+      {
+        "login":"josenn",
+        "id":26552123
+      }
+    ]
+  },
+  {
+    "id":34171815,
+    "name":"android_external_sepolicy",
+    "full_name":"Snepsts/android_external_sepolicy",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+
+    ]
+  }
+]
+```
+</p>
+</details>
+
+##### /github/repos/{username}
+<details><summary>See more</summary>
+<p>
+username is a string corresponding to a github login
+returns 3 iterations deep of searches
+
+Example request: `localhost:8080/github/repos/snepsts`
+
+Example return:
+```json
+[
+  {
+    "id":119456620,
+    "name":"acm-semo-tutorial",
+    "full_name":"Snepsts/acm-semo-tutorial",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+
+    ]
+  },
+  {
+    "id":44382875,
+    "name":"albino",
+    "full_name":"Snepsts/albino",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+      {
+        "login":"abaga129",
+        "id":8194039
+      },
+      {
+        "login":"dman620",
+        "id":26069320
+      },
+      {
+        "login":"josenn",
+        "id":26552123
+      }
+    ]
+  },
+  {
+    "id":34171815,
+    "name":"android_external_sepolicy",
+    "full_name":"Snepsts/android_external_sepolicy",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+
+    ]
+  }
+]
+```
+</p>
+</details>
+
+##### /github/singlerepo/{githubId}
+<details><summary>See more</summary>
+<p>
+githubId is a long corresponding to the githubId on a user
+returns a single iteration of searches
+
+Example request: `localhost:8080/github/singlerepo/8688876`
+
+Example return:
+```json
+[
+  {
+    "id":119456620,
+    "name":"acm-semo-tutorial",
+    "full_name":"Snepsts/acm-semo-tutorial",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+
+    ]
+  },
+  {
+    "id":44382875,
+    "name":"albino",
+    "full_name":"Snepsts/albino",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+      {
+        "login":"abaga129",
+        "id":8194039
+      },
+      {
+        "login":"dman620",
+        "id":26069320
+      },
+      {
+        "login":"josenn",
+        "id":26552123
+      }
+    ]
+  },
+  {
+    "id":34171815,
+    "name":"android_external_sepolicy",
+    "full_name":"Snepsts/android_external_sepolicy",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+
+    ]
+  }
+]
+```
+</p>
+</details>
+
+##### /github/singlerepos/{username}
+<details><summary>See more</summary>
+<p>
+username is a string corresponding to a github login
+returns a single iteration of searches
+
+Example request: `localhost:8080/github/singlerepos/snepsts`
+
+Example return:
+```json
+[
+  {
+    "id":119456620,
+    "name":"acm-semo-tutorial",
+    "full_name":"Snepsts/acm-semo-tutorial",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+
+    ]
+  },
+  {
+    "id":44382875,
+    "name":"albino",
+    "full_name":"Snepsts/albino",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+      {
+        "login":"abaga129",
+        "id":8194039
+      },
+      {
+        "login":"dman620",
+        "id":26069320
+      },
+      {
+        "login":"josenn",
+        "id":26552123
+      }
+    ]
+  },
+  {
+    "id":34171815,
+    "name":"android_external_sepolicy",
+    "full_name":"Snepsts/android_external_sepolicy",
+    "owner":{
+      "login":"Snepsts",
+      "id":8688876
+    },
+    "stargazers":[
+
+    ]
+  }
+]
+```
+</p>
+</details>
 
 #### Known Issues:
-Something with the ktor AND C# HttpClient does not receive the object from github correctly. I cannot figure it out, but I think it has something to do with calling an https endpoint from my http endpoints and other complicated things I do not fully understand.
-
-Here is a sample json object of the request from this api's http client:
-
-```json
-{
-  "login": "Snepsts",
-  "id": 8688876,
-  "node_id": "MDQ6VXNlcjg2ODg4NzY=",
-  "avatar_url": "https://avatars3.githubusercontent.com/u/8688876?v=4",
-  "url": "https://api.github.com/users/Snepsts",
-  "html_url": "https://github.com/Snepsts",
-  "followers_url": "https://api.github.com/users/Snepsts/followers",
-  "following_url": "https://api.github.com/users/Snepsts/following{/other_user}",
-  "gists_url": "https://api.github.com/users/Snepsts/gists{/gist_id}",
-  "starred_url": "https://api.github.com/users/Snepsts/starred{/owner}{/repo}",
-  "subscriptions_url": "https://api.github.com/users/Snepsts/subscriptions",
-  "organizations_url": "https://api.github.com/users/Snepsts/orgs",
-  "repos_url": "https://api.github.com/users/Snepsts/repos",
-  "events_url": "https://api.github.com/users/Snepsts/events{/privacy}",
-  "received_events_url": "https://api.github.com/users/Snepsts/received_events",
-  "type": "User",
-  "site_admin": false
-}
-```
-
-Here is what Axios returns from a skeleton Vue project (What it should look like):
-```json
-{
-  "login": "Snepsts",
-  "id": 8688876,
-  "node_id": "MDQ6VXNlcjg2ODg4NzY=",
-  "avatar_url": "https://avatars3.githubusercontent.com/u/8688876?v=4",
-  "gravatar_id": "",
-  "url": "https://api.github.com/users/Snepsts",
-  "html_url": "https://github.com/Snepsts",
-  "followers_url": "https://api.github.com/users/Snepsts/followers",
-  "following_url": "https://api.github.com/users/Snepsts/following{/other_user}",
-  "gists_url": "https://api.github.com/users/Snepsts/gists{/gist_id}",
-  "starred_url": "https://api.github.com/users/Snepsts/starred{/owner}{/repo}",
-  "subscriptions_url": "https://api.github.com/users/Snepsts/subscriptions",
-  "organizations_url": "https://api.github.com/users/Snepsts/orgs",
-  "repos_url": "https://api.github.com/users/Snepsts/repos",
-  "events_url": "https://api.github.com/users/Snepsts/events{/privacy}",
-  "received_events_url": "https://api.github.com/users/Snepsts/received_events",
-  "type": "User",
-  "site_admin": false,
-  "name": "Michael Ranciglio",
-  "company": "N/A",
-  "blog": "",
-  "location": "St. Louis, Missouri",
-  "email": null,
-  "hireable": true,
-  "bio": "Software Developer",
-  "public_repos": 41,
-  "public_gists": 0,
-  "followers": 26,
-  "following": 40,
-  "created_at": "2014-09-07T19:59:56Z",
-  "updated_at": "2019-02-28T02:54:37Z"
-}
-```
-
-I will continue to explore this issue but I don't think it's a critical issue as the api still retrieves the users, just not all of their data. If anybody knows what is wrong and feels like sharing I would love to hear the solution.
+If any errors occur you only see an error page. In my testing this occurs when you run out of requests. In order to avoid this I recommend using the `single` endpoints. You can also use a different ip address to accomplish the same thing.
 
 #### How to run:
 I was originally going to set this up on my vps but seeing as I have never deployed my own .NET Core API on it before it'd probably be more trouble than it's worth given the time I wish to have this completed by.
