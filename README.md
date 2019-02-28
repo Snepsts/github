@@ -3,12 +3,6 @@
 #### Overview:
 This is an api to interact with the github api per CenturyLink's requirements via their test:
 
-<details><summary>See more</summary>
-<p>
-
-</p>
-</details>
-
 ```
 CenturyLink Coding Challenge
 
